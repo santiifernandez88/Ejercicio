@@ -25,7 +25,7 @@ namespace Ejercicio_EnciendanMotores
             
             set
             {
-                cantidadCombustible = 0;
+                cantidadCombustible = value;
             }
         
         }
@@ -39,7 +39,7 @@ namespace Ejercicio_EnciendanMotores
             
             set
             {
-                enCompetencia = false;
+                enCompetencia = value;
             }
         }
 
@@ -52,28 +52,33 @@ namespace Ejercicio_EnciendanMotores
             
             set
             {
-                vueltasRestantes = 0;
+                vueltasRestantes = value;
             }
         }
         #endregion
+
+        #region Constructor
         public AutoF1(short numero, string escuderia)
         {
             this.numero = numero;
             this.escuderia = escuderia;
         }
+        #endregion
 
+        #region Metodos
         public string MostrarDatos()
         {
             return $"ESCUDERIA: {this.escuderia} || NUMERO {this.numero} || COMPETENCIA {this.EnCompetencia} || VUELTAS RESTANTES {this.VueltasRestantes} || CANTIDAD DE COMBUSTIBLE {this.CantidadCombustible}";
         }
 
+        #region Sobrecargas de operadores
         public static bool operator ==(AutoF1 a, AutoF1 b)
         { 
             bool resultado = false;
 
             if(a.numero == b.numero && a.escuderia == b.escuderia)
             {
-                return resultado;
+                resultado = true;
             }
 
             return resultado;
@@ -83,7 +88,8 @@ namespace Ejercicio_EnciendanMotores
         {
             return !(a == b);
         }
+        #endregion
 
-
+        #endregion
     }
 }
